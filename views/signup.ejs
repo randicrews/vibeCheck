@@ -1,0 +1,59 @@
+<%- include('partials/header') -%>
+    <main class="container">
+        <div class="row justify-content-center">
+            <section>
+                <% if (locals.messages.errors) { %>
+                    <% messages.errors.forEach( el => { %>
+                        <div class="alert alert-danger"><%= el.msg %></div>
+                    <% }) %>    
+                <% } %> 
+                <% if (locals.messages.info) { %>
+                    <% messages.info.forEach( el => { %>
+                        <div class="alert alert-info"><%= el.msg %></div>
+                    <% }) %>    
+                <% } %>
+                <form action="/signup" method="POST">
+                  <div class="mb-3">
+                    <input 
+                    type="text" 
+                    class="form-control" 
+                    id="userName" 
+                    name="userName"
+                    placeholder="username">
+                  </div>
+                  <div>
+                    <input 
+                    type="email" 
+                    class="form-control" 
+                    id="exampleInputEmail1" 
+                    aria-describedby="emailHelp" 
+                    name="email"
+                    placeholder="email">
+                    <div id="emailHelp" class="form-text">we'll never share your email with anyone else.</div>
+                  </div>
+                  <div class="mb-3">
+                    <!-- <label for="password" class="form-label">Password</label> -->
+                    <input 
+                    type="password" 
+                    class="form-control" 
+                    id="password" 
+                    name="password"
+                    placeholder="password">
+                  </div>
+                  <div class="mb-3">
+                    <!-- <label for="confirmPassword" class="form-label">Confirm Password</label> -->
+                    <input 
+                    type="password" 
+                    class="form-control" 
+                    id="confirmPassword" 
+                    name="confirmPassword"
+                    placeholder="confirm password">
+                  </div>
+                  <button type="submit" class="btn btn-default">submit</button>
+                </form>
+                <a href="/" class="btn btn-default">back</a>
+            </section>
+        </div>
+    </main>
+
+<%- include('partials/footer') -%>

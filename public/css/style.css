@@ -1,0 +1,92 @@
+*{
+  list-style: none;
+}
+p.greet{
+  color: white;
+}
+body{
+    margin-top: 100px;
+    background: black;
+    display: flex;
+    color: white;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  body.map{
+    color: black;
+  }
+  form{
+    width: 80%;
+  }
+  a{
+    color: white;
+    text-decoration: none;
+  }
+  a:hover{
+    color: gray;
+  }
+  a:hover{
+    text-decoration: none;
+  }
+  .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  div.post{
+    width: 80%
+  }
+  img{
+    height: 200px;
+  }
+  div.landing{
+    width: 80%;
+  }
+  div.home{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    padding-bottom: 0px;
+  }
+  .btn-default{
+    background: rgba(0, 0, 0, 0.248);
+    border: rgba(255, 255, 255, 0.402) 1px dotted;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 15px;
+    color: gray;
+  }
+  .btn-default{  
+    color: rgb(255, 255, 255);
+  }
+  #map{
+    height: 400px;
+    width: 100%;
+  }
+  div.info{
+    padding: 0;
+  }
+  
+  #infoHeading{
+    font-size: 20px;
+  }
+  #infoBody{
+    margin-bottom: 10px;
+  }
+  h3.info{
+    font-size: 20px;
+    font-style: italic;
+    color: gray;
+  }
+  .fa-trash:before{content:'\f00d'}
+  .infoWindow{
+    color: rgb(0, 0, 0);
+    max-width: 100px
+  }
+  ul.reports{
+    color: white;
+  }
