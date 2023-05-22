@@ -1,49 +1,102 @@
+/* U M B R E L L A */
 *{
   list-style: none;
+  font-family: 'Space Mono', monospace;
 }
-p.greet{
-  color: white;
-}
+i{
+  margin-right: 7px;
+  margin-left: 7px;
+ }
 body{
-    margin-top: 100px;
-    background: black;
-    display: flex;
-    color: white;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  body.map{
-    color: black;
-  }
-  form{
-    width: 80%;
-  }
-  a{
-    color: white;
-    text-decoration: none;
-  }
-  a:hover{
-    color: gray;
-  }
-  a:hover{
-    text-decoration: none;
-  }
-  .container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  div.post{
-    width: 80%
-  }
-  img{
-    height: 200px;
-  }
-  div.landing{
-    width: 80%;
-  }
+  background: black;
+  display: flex;
+  color: white;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Space Mono', monospace;
+}
+a{
+  color: white;
+  text-decoration: none;
+  text-align: center;
+}
+a:hover{
+  color: rgb(86, 86, 86);
+  text-decoration: none;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+img{
+  height: 200px;
+}
+.formcontrol{
+  font-family: 'Space Mono', monospace, Times;
+}
+input:-webkit-autofill {
+  -webkit-box-shadow:0 0 0 50px white inset; /* Change the color to your own background color */
+  -webkit-text-fill-color: #333;
+  font-family: 'Space Mono', monospace, Times;
+}
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 50px white inset;/*your box-shadow*/
+  -webkit-text-fill-color: #333;
+  font-family: 'Space Mono', monospace, Times;
+} 
+header{
+  margin-top: 40px;
+  margin-bottom: 40px;
+
+}
+h1:hover {
+  transform: translateY(-2px);
+}
+h1 a:hover {
+color: rgb(110	110	110	);
+}
+
+ /* L A N D I N G */
+
+ div.landing{
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  width: 30%;
+ }
+ 
+  /* S I G N U P */   /* L O G I N */
+
+div.signup, div.login{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  width: 30%;
+ }
+form.signup, form.login, .signupInputs, .loginInputs{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.signupInputs, .loginInputs{
+  margin: 20px;
+}
+
+input.login, input.signup{
+  width: 100%;
+  margin: 10px;
+  border: none;
+  font-family: 'Space Mono', monospace;
+}
+
+  /* H O M E */
   div.home{
     display: flex;
     flex-direction: column;
@@ -52,20 +105,26 @@ body{
     padding: 20px;
     padding-bottom: 0px;
   }
-  .btn-default{
-    background: rgba(0, 0, 0, 0.248);
-    border: rgba(255, 255, 255, 0.402) 1px dotted;
-    border-radius: 5px;
-    padding: 5px;
-    margin: 15px;
-    color: gray;
+  p.greet{
+    color: white;
+    font-size: 27px;
+    font-style: italic;
   }
-  .btn-default{  
-    color: rgb(255, 255, 255);
+
+  /* M A P */
+
+  div.mapHead{
+    display: flex;
+  }
+
+  body.map{
+    color: black;
   }
   #map{
     height: 400px;
     width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
   div.info{
     padding: 0;
@@ -82,11 +141,113 @@ body{
     font-style: italic;
     color: gray;
   }
-  .fa-trash:before{content:'\f00d'}
   .infoWindow{
     color: rgb(0, 0, 0);
     max-width: 100px
   }
+  fieldset.map{
+    width: 100%;
+    display: flex;
+  }
+  input.map{
+    width: 95%;
+    border: none;
+  }
+  form.map{
+    width: 5%;
+  }
+  button.map{
+    width: 100%;
+    margin: 0px;
+  }
   ul.reports{
     color: white;
   }
+  .reportEdit{
+    display: flex;
+  }
+  .fa-trash{
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border-right: black double 4px;
+  }
+  .fa-pen{
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border-left: black double 4px;
+
+  }
+
+/* built off of BUTTON 30 by Algolia */
+.btn-default{
+  align-items: center;
+  appearance: none;
+  background-color: rgb(195	195	195	);
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgb(120, 120, 120) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: rgba(100	100	100);
+  cursor: pointer;
+  display: inline-flex;
+  height: 48px;
+  width: 100%;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+  margin: 10px;
+}
+
+.btn-default:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(255, 255, 255, 0.4) 0 2px 4px, rgba(255, 255, 255, 0.3) 0 7px 13px -3px, #ffffff 0 -3px 0 inset;
+}
+
+.btn-default:hover {
+  box-shadow: rgba(255, 255, 255, 0.4) 0 4px 8px, rgba(255, 255, 255, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+  background-color: #fcfcfd;
+  color: rgb(0, 0, 0);
+}
+
+.btn-default:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+/* other buttons */
+
+.btn{
+  color: rgba(255, 255, 255, 0.666);
+  background-color: rgb(40, 40, 40);
+  border-radius: 0px;
+}
+.btn:hover{
+  color: rgb(0, 0, 0);
+  background-color: rgb(88, 88, 88);
+}
+.smoll{
+  margin: 2px;
+  width: auto;
+}
+.logout{
+  margin-top: 10px;
+  border-radius: 4px;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgb(20, 20, 20) 0 -3px 0 inset;
+}
+.logout:hover{
+  color: white;
+}
+

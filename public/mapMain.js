@@ -2,7 +2,7 @@
 function initMap() {
     // set up basic features of our map
     var options = {
-      zoom: 13.5,
+      zoom: 11,
       center: { lat: 42.3601, lng: -71.0589 },
       clickableIcons: false,
       clickable: false,
@@ -146,23 +146,33 @@ function initMap() {
 
   function createMarker(map, infoWindow, place) {
     var center = { lat: Number(place.lat), lng: Number(place.long) };
-    var circle = new google.maps.Circle({
+    var symbol = {
+        path: google.maps.SymbolPath.CIRCLE,
+        scale: Math.sqrt(place.reports) * 5, // Adjust the size as needed
+        fillColor: `rgb(${place.reports < 1 ? 120 : place.reports < 5 ? 255 : place.reports < 10 ? 255 - (place.reports - 5) * 20 : 255}, ${place.reports < 1 ? 80 : place.reports < 5 ? 150 : place.reports < 10 ? 100 : 0}, 0)`,
+        fillOpacity: 0.5,
+        strokeOpacity: 0, 
+      };
+    var circle = new google.maps.Marker({
+      icon: symbol,
       strokeOpacity: 0,
-      strokeWeight: 2,
-      fillColor: `rgb(${place.reports < 1 ? 120 : place.reports < 5 ? 255 : place.reports < 10 ? 255 - (place.reports - 5) * 20 : 255}, ${place.reports < 1 ? 80 : place.reports < 5 ? 150 : place.reports < 10 ? 100 : 0}, 0)`,
-      fillOpacity: 0.5,
+    //   strokeWeight: 2,
+    //   fillColor: `rgb(${place.reports < 1 ? 120 : place.reports < 5 ? 255 : place.reports < 10 ? 255 - (place.reports - 5) * 20 : 255}, ${place.reports < 1 ? 80 : place.reports < 5 ? 150 : place.reports < 10 ? 100 : 0}, 0)`,
+    //   fillOpacity: 0.5,
       map: map,
-      center: center,
-      radius: Math.sqrt(place.reports) * 100,
+      position: center,
+    //   radius: Math.sqrt(place.reports) * 100,
     });
 
     circle.addListener('mouseover', function () {
+      const uniqueReports = [...new Set(place.reportType)];
+  
       var contentString =
       '<div class="info" id="info">' +
       `<h1 class="info" id="infoHeading">${place.name}</h1>` +
       '<div class="info" id="infoBody">' +
       `<h2 class="info"> reports: ${place.reports} </h2> <br>` +
-      `<h3 class="info"> ${place.reportType} </h3>` +
+      `<h2 class="info"> reports: ${uniqueReports.join(", ")} </h2> <br>` +
       "</div>" +
       "</div>";
       var content = contentString
@@ -179,6 +189,9 @@ function initMap() {
 });
   }
   
+
+
+// AUTO COMPLETE SEARCH BAR - for locations already in db  
 $.get('/getdata')
   .done(function(response) {
     const placeNamesTemp = response.placesOnFile;

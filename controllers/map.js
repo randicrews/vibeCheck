@@ -6,9 +6,10 @@ const Place = require("../models/Place.js");
 module.exports = {
   displayMap: async (req, res) => {
     try {
+      console.log(req.user._id)
       var reports = await Report.find().sort({ createdAt: "desc" }).lean();
       var places = await Place.find().sort({ createdAt: "desc" }).lean();
-      res.render("map.ejs", { reports: reports, places:places });
+      res.render("map.ejs", { reports: reports, places:places, user: req.user});
     } catch (err) {
       console.log(err);
     }

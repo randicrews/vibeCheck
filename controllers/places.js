@@ -8,67 +8,53 @@ module.exports = {
     res.render("postLocation.ejs", {user: req.user.id});
   },
   // recieve user input
-  submitPlace: async (req, res) => {
+  submitReport: async (req, res) => {
     try {
       console.log(req.body);
-      // has this place already been reported?
-      const existingPlace = await Place.find({
-        name: req.body.name,
-        long: req.body.long,
-      });
-      // if no, add to db
-      if (existingPlace.length === 0) {
+      const { name, phys, long, lat, reportType, date, body } = req.body;
+  
+      // Check if the place already exists
+      let existingPlace = await Place.findOne({ name, long });
+      let locationID;
+  
+      if (!existingPlace) {
+        // If the place doesn't exist, create a new one
         const newPlace = await Place.create({
-          name: req.body.name,
-          phys: req.body.phys,
-          long: req.body.long,
-          lat: req.body.lat,
-          reportType: [req.body.reportType],
+          name,
+          phys,
+          long,
+          lat,
+          reportType: [reportType],
           reports: 1,
         });
         console.log("Place has been added!");
-        locationID = newPlace.id
-      } 
-      // if yes, increase report
-      else {
+        locationID = newPlace._id;
+      } else {
+        // If the place already exists, update its reports and reportType
         await Place.findOneAndUpdate(
-          { name: req.body.name, long: req.body.long },
+          { name, long },
           {
             $inc: { reports: 1 },
-            $addToSet: { reportType: ` ${req.body.reportType}` },
-
+            $addToSet: { reportType: reportType },
           }
         );
-        locationID = existingPlace[0].id
+        locationID = existingPlace._id;
       }
-      res.render("postReport",{
-        lat: req.body.lat,
-        long: req.body.long,
-        name: req.body.name,
-        phys: req.body.phys,
-        reportType: req.body.reportType,
-        locationID: locationID,
+  
+      // Create the report
+      await Report.create({
+        locationID,
+        name,
+        date,
+        body,
+        reportType,
+        reportedBy: req.user.id,
       });
+  
+      res.redirect("/home");
     } catch (err) {
       console.log(err);
     }
-  },
-  giveReport: async (req, res) => {
-    try {
-      console.log(req.body);
-        await Report.create({ 
-          locationID: req.body.locationID, 
-          name: req.body.name,
-          date: req.body.date,
-          body: req.body.body,
-          reportType: req.body.reportType,
-          reportedBy: req.user.id
-        })
-
-        res.redirect("/home");
-      } catch (err) {
-        console.log(err);
-      }
   },
   // giveReport: (req, res) => {
   //   res.render("postReport.ejs");

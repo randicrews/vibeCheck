@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
+    "firebase": "firebase",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -18,6 +19,7 @@
     "express": "^4.17.1",
     "express-flash": "^0.0.2",
     "express-session": "^1.17.1",
+    "firebase": "^9.22.0",
     "method-override": "^3.0.0",
     "mongodb": "^3.6.5",
     "mongoose": "^5.12.3",
@@ -27,5 +29,8 @@
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "validator": "^13.6.0"
+  },
+  "devDependencies": {
+    "firebase-tools": "^12.1.0"
   }
 }

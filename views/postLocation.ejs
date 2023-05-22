@@ -53,12 +53,16 @@
     <a href="/logout">logout</a>
     
       <form action="/place/new" method="post">
-        <div><input type="text" name="name" placeholder="where did this happen? (address/venue)" id="autocomplete_search" name="autocomplete_search" type="text" class="form-control" required></div>
-        <input type="hidden" name="lat" id="lat">
-        <input type="hidden" name="long" id="long">
-        <input type="hidden" name="phys" id="phys">
-        <label for="reportType">please choose what best decribes your experience. please be aware that the contents of this menu may be triggering.</label>
-        <select name="reportType" id="reportType" required >
+        <div>
+          <input type="text" name="name" placeholder="where did this happen? (address/venue)" id="autocomplete_search" name="autocomplete_search" type="text" class="form-control" required>
+        </div>
+          <input type="hidden" name="lat" id="lat">
+          <input type="hidden" name="long" id="long">
+          <input type="hidden" name="phys" id="phys">
+
+          <label for="reportType">please choose what best decribes your experience. please be aware that the contents of this menu may be triggering.</label>
+
+          <select name="reportType" id="reportType" required >
           <option value="" disabled selected hidden> - - - - </option>
           <option value="accessibility issues">accessibility issues</option>
           <option value="hate speech (racist or xenophobic)">hate speech (racist or xenophobic)</option>
@@ -69,8 +73,13 @@
           <option value="drugging (suspected)">drugging (suspected)</option>
           <option value="drugging (confirmed)">drugging (confirmed)</option>
           <option value="stalking">stalking</option>
-        </select>
-        <button class="btn-default" type="submit">next</button>
+          </select>
+        
+        <div>
+          <input type="date" name="date" class="form-control" required>
+          <input type="text" name="body" placeholder="description of event" class="form-control" required>
+        </div>
+        <button class="btn-default" type="submit">submit</button>
       </form>
 
   </div>

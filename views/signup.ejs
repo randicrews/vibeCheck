@@ -1,6 +1,6 @@
 <%- include('partials/header') -%>
     <main class="container">
-        <div class="row justify-content-center">
+      <a href="/" class="btn-default smoll"> <i class="fa-solid fa-circle-arrow-left"></i>back</a>
             <section>
                 <% if (locals.messages.errors) { %>
                     <% messages.errors.forEach( el => { %>
@@ -12,48 +12,38 @@
                         <div class="alert alert-info"><%= el.msg %></div>
                     <% }) %>    
                 <% } %>
-                <form action="/signup" method="POST">
-                  <div class="mb-3">
+                <form class="signup" action="/signup" method="POST">
+                    <div class="signupInputs">
                     <input 
                     type="text" 
-                    class="form-control" 
+                    class="form-control signup" 
                     id="userName" 
                     name="userName"
                     placeholder="username">
-                  </div>
-                  <div>
                     <input 
                     type="email" 
-                    class="form-control" 
+                    class="form-control signup" 
                     id="exampleInputEmail1" 
                     aria-describedby="emailHelp" 
                     name="email"
                     placeholder="email">
-                    <div id="emailHelp" class="form-text">we'll never share your email with anyone else.</div>
-                  </div>
-                  <div class="mb-3">
-                    <!-- <label for="password" class="form-label">Password</label> -->
+                    <p class="form-text"><em>we'll never share your email with anyone else.</em></p>
                     <input 
                     type="password" 
-                    class="form-control" 
+                    class="form-control signup" 
                     id="password" 
                     name="password"
                     placeholder="password">
-                  </div>
-                  <div class="mb-3">
-                    <!-- <label for="confirmPassword" class="form-label">Confirm Password</label> -->
                     <input 
                     type="password" 
-                    class="form-control" 
+                    class="form-control signup" 
                     id="confirmPassword" 
                     name="confirmPassword"
                     placeholder="confirm password">
-                  </div>
-                  <button type="submit" class="btn btn-default">submit</button>
+                </div>
+                  <button type="submit" class="btn-default smoll">good to go <i class="fa-solid fa-circle-check"></i></button>
                 </form>
-                <a href="/" class="btn btn-default">back</a>
             </section>
-        </div>
     </main>
 
 <%- include('partials/footer') -%>

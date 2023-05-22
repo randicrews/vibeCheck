@@ -1,38 +1,35 @@
 <%- include('partials/header') -%>
  
-<main class="container">
-  <div class="row justify-content-center">
-    <section>
+<main class="container login">
+  <a href="/" class="btn-default smoll"> <i class="fa-solid fa-circle-arrow-left"></i>back</a>
+
+  <div class="login">
       <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
       <div class="alert alert-danger"><%= el.msg %></div>
       <% }) %> <% } %> <% if (locals.messages.info) { %> <%
       messages.info.forEach( el => { %>
       <div class="alert alert-info"><%= el.msg %></div>
       <% }) %> <% } %>
-      <form action="/login" method="POST">
-        <div>
+      <form action="/login" method="POST" class="login">
+        <div class="loginInputs">
           <input
             type="email"
-            class="form-control"
+            class="form-control login"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
             name="email"
             placeholder="email"
           />
-        </div>
-        <div>
           <input
             type="password"
-            class="form-control"
+            class="form-control login"
             id="exampleInputPassword1"
             name="password"
             placeholder="password"
           />
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn-default smoll">good to go<i class="fa-solid fa-circle-check"></i></button>
       </form>
-      <a href="/" class="btn btn-default">back</a>
-    </section>
   </div>
 </main>
 

@@ -8,8 +8,8 @@ const { ensureAuth, ensureGuest } = require("../middleware/auth");
 //Place Routes - simplified for now
 // router.get("/place", ensureAuth, placesController.namePlace);
 
-router.post("/new", ensureAuth, placesController.submitPlace);
-router.post("/report", ensureAuth, placesController.giveReport);
+router.post("/new", ensureAuth, placesController.submitReport);
+// router.post("/report", ensureAuth, placesController.giveReport);
 
 
 
