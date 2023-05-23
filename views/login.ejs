@@ -3,15 +3,15 @@
 <main class="container login">
   <a href="/" class="btn-default smoll"> <i class="fa-solid fa-circle-arrow-left"></i>back</a>
 
-  <div class="login">
+  <div class="flexCol">
       <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
       <div class="alert alert-danger"><%= el.msg %></div>
       <% }) %> <% } %> <% if (locals.messages.info) { %> <%
       messages.info.forEach( el => { %>
       <div class="alert alert-info"><%= el.msg %></div>
       <% }) %> <% } %>
-      <form action="/login" method="POST" class="login">
-        <div class="loginInputs">
+      <form action="/login" method="POST" class="flexCol">
+        <div class="flexCol">
           <input
             type="email"
             class="form-control login"

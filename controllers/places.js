@@ -5,7 +5,7 @@ const Report = require("../models/Report");
 module.exports = {
   // bring user to location input
   namePlace: (req, res) => {
-    res.render("postLocation.ejs", {user: req.user.id});
+    res.render("report.ejs", {user: req.user.id});
   },
   // recieve user input
   submitReport: async (req, res) => {
@@ -40,12 +40,17 @@ module.exports = {
         );
         locationID = existingPlace._id;
       }
-  
+      // format date 
+      const formattedDate = new Date(date).toLocaleDateString("en-US", {
+        month: "long",
+        day: "numeric",
+        year: "numeric",
+      });
       // Create the report
       await Report.create({
         locationID,
         name,
-        date,
+        date: formattedDate,
         body,
         reportType,
         reportedBy: req.user.id,

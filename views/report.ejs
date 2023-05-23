@@ -24,6 +24,7 @@
       crossorigin="anonymous"
     />
   <link rel="stylesheet" href="/css/style.css" />
+  <script src="https://kit.fontawesome.com/504ea75c01.js" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7PigA3KZAJa5hqRGglC_uHD9g2BBbgME&libraries=places"></script>
   <script>
@@ -47,42 +48,50 @@
   </script>
 
 </head>
+<header class="container">
+  <div class="text-center">
+    <h1 class=""><a href="/home">vibeCheck</a></h1>
+  </div>
+</header>
 <body>
   <div class="container">
-    <a href="/home">back</a>
-    <a href="/logout">logout</a>
+    <div class="headButts"> 
+      <a href="/home" class="btn-default smoll"> <i class="fa-solid fa-circle-arrow-left"></i> back </a>
+      <a href="/logout" class="btn-default smoll btn logout">logout<i class="fa-solid fa-ghost"></i></a>
+    </div>
     
-      <form action="/place/new" method="post">
-        <div>
+      <form action="/place/new" method="post" class="flexCol report">
           <input type="text" name="name" placeholder="where did this happen? (address/venue)" id="autocomplete_search" name="autocomplete_search" type="text" class="form-control" required>
-        </div>
           <input type="hidden" name="lat" id="lat">
           <input type="hidden" name="long" id="long">
           <input type="hidden" name="phys" id="phys">
 
-          <label for="reportType">please choose what best decribes your experience. please be aware that the contents of this menu may be triggering.</label>
+          <label for="reportType">please choose what best decribes your experience. <br><em>the contents of this menu may be triggering.</em></label>
 
           <select name="reportType" id="reportType" required >
-          <option value="" disabled selected hidden> - - - - </option>
-          <option value="accessibility issues">accessibility issues</option>
-          <option value="hate speech (racist or xenophobic)">hate speech (racist or xenophobic)</option>
-          <option value="hate speech (based on sexuality or gender)">hate speech (based on sexuality or gender)</option>
-          <option value="hate speech (ableist)">hate speech (ableist)</option>          
-          <option value="physical assault">physical assault</option>
-          <option value="sexual assault">sexual assault</option>
-          <option value="drugging (suspected)">drugging (suspected)</option>
-          <option value="drugging (confirmed)">drugging (confirmed)</option>
-          <option value="stalking">stalking</option>
+            <option value="" disabled selected hidden> - - - - </option>
+            <option value="ableism">ableism</option>
+            <option value="accessibility issues">accessibility issues</option>
+            <option value="drugging (confirmed)">drugging (confirmed)</option>
+            <option value="drugging (suspected)">drugging (suspected)</option>
+            <option value="harassment">harassment</option>      
+            <option value="physical assault">physical assault</option>        
+            <option value="racism or xenophobia">racism or xenophobia</option>
+            <option value="sexual assault">sexual assault</option>
+            <option value="sexuality or gender-based hate/discrimination">sexuality or gender-based hate/discrimination</option>
+            <option value="stalking">stalking</option>      
+            <option value="theft">theft</option>
+            <option value="threats of violence">threats of violence</option>
+            <option value="weapons">weapons</option>
           </select>
         
-        <div>
-          <input type="date" name="date" class="form-control" required>
-          <input type="text" name="body" placeholder="description of event" class="form-control" required>
-        </div>
-        <button class="btn-default" type="submit">submit</button>
+          <input type="date" name="date" class="form-control" required max="<?php echo date('Y-m-d'); ?>" min="<?php echo date('Y-m-d', strtotime('-30 years')); ?>">
+          <input type="text" name="body" placeholder="description of event" class="form-control" minlength="80" required>
+        <button class="btn-default smoll" type="submit">submit<i class="fa-solid fa-circle-check"></i></button>
       </form>
 
   </div>
+<script src="/report.js"></script> 
 
 </body>
 

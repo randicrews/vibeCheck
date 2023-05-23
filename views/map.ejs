@@ -39,9 +39,9 @@
 </header>
 <body class="map">
 
-  <div class="mapHead"> 
+  <div class="headButts"> 
     <a href="/home" class="btn-default smoll"> <i class="fa-solid fa-circle-arrow-left"></i> back </a>
-    <a href="/logout" class="btn-default smoll"> logout<i class="fa-solid fa-ghost"></i></a>
+    <a href="/logout" class="btn-default smoll btn logout">logout<i class="fa-solid fa-ghost"></i></a>
   </div>
 <div id="map"></div>
 
@@ -60,10 +60,10 @@
     return new Date(b.date) - new Date(a.date);
     });
     for(var i=0; i<reports.length; i++) {%>
-    <li>
-      <span><%= reports[i].name %></span><br>
-      <span><%= reports[i].date %></span><br>
-      <span><%= reports[i].body %></span>
+    <li class="report">
+      <span class="name"><%= reports[i].name %></span>
+      <span class="date"><%= reports[i].date %></span>
+      <span class="description"><%= reports[i].body %></span>
       <span id="long" hidden><%= reports[i].long %></span>
       <span id="lat" hidden><%= reports[i].lat %></span>
       <%if( reports[i].reportedBy == user.id ){ %>
@@ -85,7 +85,7 @@
     </li>
   <% } %>
 </ul>
-<ul class="locations">
+<ul class="locations" hidden>
   <% for(var i=0; i<places.length; i++) {%>
     <li>
       <span id="name" hidden ><%= places[i].name %></span><br>

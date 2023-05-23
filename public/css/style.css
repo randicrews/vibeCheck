@@ -3,10 +3,21 @@
   list-style: none;
   font-family: 'Space Mono', monospace;
 }
-i{
-  margin-right: 7px;
-  margin-left: 7px;
- }
+header{
+  margin-top: 40px;
+  margin-bottom: 10px;
+
+}
+h1:hover {
+  transform: translateY(-2px);
+}
+h1 a:hover {
+color: rgb(110	110	110	);
+}
+div.headButts {
+  display: flex;
+  margin-bottom: 20px;
+}
 body{
   background: black;
   display: flex;
@@ -16,6 +27,11 @@ body{
   align-items: center;
   font-family: 'Space Mono', monospace;
 }
+i{
+  margin-right: 7px;
+  margin-left: 7px;
+ }
+
 a{
   color: white;
   text-decoration: none;
@@ -47,16 +63,8 @@ input:-webkit-autofill:focus {
   -webkit-text-fill-color: #333;
   font-family: 'Space Mono', monospace, Times;
 } 
-header{
-  margin-top: 40px;
-  margin-bottom: 40px;
-
-}
-h1:hover {
-  transform: translateY(-2px);
-}
-h1 a:hover {
-color: rgb(110	110	110	);
+:placeholder-shown{
+  font-style: italic;
 }
 
  /* L A N D I N G */
@@ -70,26 +78,16 @@ color: rgb(110	110	110	);
  
   /* S I G N U P */   /* L O G I N */
 
-div.signup, div.login{
+ .flexCol{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: auto;
-  width: 30%;
- }
-form.signup, form.login, .signupInputs, .loginInputs{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  margin: 10px;
 }
 
-.signupInputs, .loginInputs{
-  margin: 20px;
-}
 
-input.login, input.signup{
+input.login, input.signup, .report input, .report select{
   width: 100%;
   margin: 10px;
   border: none;
@@ -113,18 +111,13 @@ input.login, input.signup{
 
   /* M A P */
 
-  div.mapHead{
-    display: flex;
-  }
-
   body.map{
     color: black;
   }
   #map{
     height: 400px;
     width: 100%;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
   div.info{
     padding: 0;
@@ -165,18 +158,58 @@ input.login, input.signup{
   }
   .reportEdit{
     display: flex;
+    margin-top: 15px;
+    margin-left: 0px
   }
   .fa-trash{
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
     border-right: black double 4px;
   }
   .fa-pen{
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
     border-left: black double 4px;
 
   }
+
+    /* REPORTS */
+  li.report{
+    background: rgba(60, 60, 60, 0.666);
+    margin: 15px;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  li.report span{
+    margin-top: 5px;
+  }
+  span.name{
+    font-weight: 800;
+  }
+  span.date{
+    font-style: italic;
+    color: rgb(140, 140, 140);
+  }
+  span.body{
+    font-style: italic;
+  }
+  
+/* R E P O R T */
+
+form label{
+  text-align: center;
+  color: rgb(140, 140, 140);
+
+
+}
+
 
 /* built off of BUTTON 30 by Algolia */
 .btn-default{
@@ -229,25 +262,28 @@ input.login, input.signup{
 
 /* other buttons */
 
-.btn{
-  color: rgba(255, 255, 255, 0.666);
-  background-color: rgb(40, 40, 40);
-  border-radius: 0px;
-}
 .btn:hover{
+  color: white;
+  background-color: rgb(140, 140, 140);
+}
+.btn{
   color: rgb(0, 0, 0);
-  background-color: rgb(88, 88, 88);
+  background-color: rgb(60, 60, 60);
 }
 .smoll{
   margin: 2px;
   width: auto;
 }
 .logout{
-  margin-top: 10px;
   border-radius: 4px;
-  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgb(20, 20, 20) 0 -3px 0 inset;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(70, 70, 70, 0.3) 0 7px 13px -3px, rgb(45, 45, 45) 0 -3px 0 inset;
 }
 .logout:hover{
   color: white;
+  margin: 2px;
+  width: auto;
 }
 
+.roomyBottom{
+  margin-bottom: 20px;
+}
