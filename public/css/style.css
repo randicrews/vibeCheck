@@ -191,9 +191,9 @@ input.login, input.signup, .report input, .report select, .edit-form input, text
 
     /* REPORTS */
     .reports {
-      max-height: 400px; /* Adjust the maximum height as needed */
+      max-height: 200px; /* Adjust the maximum height as needed */
       overflow-y: auto;
-      scrollbar-color: white
+      scrollbar-color: rgb(83, 83, 83)
     }
   li.report{
     background: rgba(60, 60, 60, 0.666);
@@ -216,6 +216,9 @@ input.login, input.signup, .report input, .report select, .edit-form input, text
   }
   span.body{
     font-style: italic;
+  }
+  span.space{
+    margin-left: 5px;
   }
 
   form.edit-form, form.edit-form>input {
