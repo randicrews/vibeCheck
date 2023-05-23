@@ -105,9 +105,11 @@ input.login, input.signup, .report input, .report select, .edit-form input, text
   }
   p.greet{
     color: white;
+    width: 100%;
     font-size: 27px;
     font-style: italic;
     text-align: center;
+    padding: 10px;
   }
 
   /* M A P */
