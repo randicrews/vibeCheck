@@ -164,7 +164,9 @@ function initMap() {
     //   radius: Math.sqrt(place.reports) * 100,
     });
 
-    circle.addListener('mouseover', function () {
+    circle.addListener('mouseover', circleEvent)
+    
+    function circleEvent(circle){
       const uniqueReports = [...new Set(place.reportType)];
   
       var contentString =
@@ -172,7 +174,7 @@ function initMap() {
       `<h1 class="info" id="infoHeading">${place.name}</h1>` +
       '<div class="info" id="infoBody">' +
       `<h2 class="info"> reports: ${place.reports} </h2> <br>` +
-      `<h2 class="info"> reports: ${uniqueReports.join(", ")} </h2> <br>` +
+      `<h3 class="info"> ${uniqueReports.join(", ")} </h2> <br>` +
       "</div>" +
       "</div>";
       var content = contentString
@@ -183,10 +185,14 @@ function initMap() {
       className: 'infoWindow' 
     });
       infoWindow.open(map);
-    });
+    }
     circle.addListener('mouseout', function() {
     infoWindow.close();
-});
+    });
+    circle.addListener('click', function() {
+    infoWindow.close();
+    });
+
   }
   
 
@@ -225,3 +231,57 @@ $.get('/getdata')
   .fail(function(textStatus, errorThrown) {
     console.error("error:", textStatus, errorThrown);
   });
+
+
+// EDIT REPORT
+var edit = document.querySelectorAll('.editButt')
+Array.from(edit).forEach(function (element) {
+  element.addEventListener("click", function () {
+    element.style.display = 'none';
+    var form = element.parentNode.childNodes[3]
+    form.classList.toggle('hidden')
+    var oldDate = element.parentNode.parentNode.parentNode.childNodes[1]
+    var oldDetails = element.parentNode.parentNode.parentNode.childNodes[1]
+
+
+
+    console.log(old, 'old')
+
+
+  })
+});
+
+
+
+
+      // // Get the updated values from the form
+      // const context = document.querySelector('#context-input').value;
+      // const date = document.querySelector('#date-input').value;
+      // const symptoms = document.querySelector('#symptoms-input').value
+      // const id = event.target.parentNode.querySelector('data-id');
+      // // TODO: Update the post with the new values
+      // console.log(id2, 'id2')
+      // fetch(`/editReport/${id}`, {
+      //   method: 'PUT',
+      //   headers: {
+      //     'Content-Type': 'application/json'
+      //   },
+      //   body: JSON.stringify({
+      //     context: context,
+      //     date: date,
+      //     symptoms: symptoms
+      //   })
+      // })
+      // .then(response => {
+      //   if (response.ok) {
+      //     location.reload(); // refresh the page to show the updated post
+      //   } else {
+      //     console.log('Error updating post');
+      //   }
+      // });
+
+      // // Remove the form from the DOM
+      // form.remove();
+
+      // Show the edit icon again
+

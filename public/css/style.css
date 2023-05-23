@@ -87,7 +87,7 @@ input:-webkit-autofill:focus {
 }
 
 
-input.login, input.signup, .report input, .report select{
+input.login, input.signup, .report input, .report select, .edit-form input, textarea{
   width: 100%;
   margin: 10px;
   border: none;
@@ -107,6 +107,7 @@ input.login, input.signup, .report input, .report select{
     color: white;
     font-size: 27px;
     font-style: italic;
+    text-align: center;
   }
 
   /* M A P */
@@ -166,16 +167,15 @@ input.login, input.signup, .report input, .report select{
     border-top-left-radius: 5px;
     border-bottom-right-radius: 0px;
     border-top-right-radius: 0px;
-    border-right: black double 4px;
+    margin-right: 2px;
   }
   .fa-pen{
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
     border-bottom-left-radius: 0px;
     border-top-left-radius: 0px;
-    border-left: black double 4px;
-
   }
+
 
     /* REPORTS */
   li.report{
@@ -200,7 +200,13 @@ input.login, input.signup, .report input, .report select{
   span.body{
     font-style: italic;
   }
-  
+
+  form.edit-form, form.edit-form>input {
+    margin-top: 0px;
+  }
+  div.edit{
+    width: 100%;
+  }
 /* R E P O R T */
 
 form label{
@@ -287,3 +293,10 @@ form label{
 .roomyBottom{
   margin-bottom: 20px;
 }
+.hidden{
+  display: none;
+}
+/* .is-invalid{
+  background-color: yellowgreen;
+  color: rebeccapurple;
+} */

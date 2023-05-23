@@ -30,6 +30,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
 <script src="https://kit.fontawesome.com/504ea75c01.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
 </head>
 <header class="container">
@@ -62,25 +63,42 @@
     for(var i=0; i<reports.length; i++) {%>
     <li class="report">
       <span class="name"><%= reports[i].name %></span>
-      <span class="date"><%= reports[i].date %></span>
+      <span class="date">
+        <% 
+          var originalDate = new Date(reports[i].date);
+          var adjustedDate = new Date(originalDate.getTime() + (24 * 60 * 60 * 1000));
+          var formattedDate = adjustedDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+          %>
+        <%= formattedDate %>
+      </span>
+   
+      
       <span class="description"><%= reports[i].body %></span>
       <span id="long" hidden><%= reports[i].long %></span>
       <span id="lat" hidden><%= reports[i].lat %></span>
       <%if( reports[i].reportedBy == user.id ){ %>
         <section class="reportEdit">
           <form
-            action="/deleteReport/<%= reports[i]._id %>?_method=DELETE"
+            action="/report/delete/<%= reports[i]._id %>?_method=DELETE"
             method="POST"
             class="report">
             <button class="btn fa fa-trash" type="submit"></button>
           </form>
-          <form
-            action="/deleteReport/<%= reports[i]._id %>?_method=DELETE"
-            method="POST"
-            class="report">
-            <button class="btn fa fa-pen" type="submit"></button>
-          </form>
-          <%}%>
+          <div class="edit">
+            <button class="btn fa fa-pen editButt"></button>
+            <form 
+              action="/report/edit/<%= reports[i]._id %>?_method=PUT" 
+              method="POST" 
+              class="flexCol edit-form hidden" 
+              >
+              <!-- Editable fields -->
+              <input hidden type="text" name="reportID" value="<%= reports[i]._id %>">
+              <input required type="date" name="date" class="form-control" required max="<?php echo date('Y-m-d'); ?>" min="<?php echo date('Y-m-d', strtotime('-30 years')); ?>" value="<%= reports[i].date %>">
+              <textarea class="form-control" minlength="80" required name="body"><%= reports[i].body %></textarea>
+              <button class="btn" type="submit">Update</button>
+            </form>
+          </div>
+      <%}%>
         </section>
     </li>
   <% } %>

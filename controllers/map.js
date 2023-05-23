@@ -7,9 +7,22 @@ module.exports = {
   displayMap: async (req, res) => {
     try {
       console.log(req.user._id)
+      const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        const utcOffset = date.getTimezoneOffset() * 60000; // Get the UTC offset in milliseconds
+        const nyOffset = -240 * 60000; // NYC offset: UTC-4 hours (considering daylight saving time)
+        const nyDate = new Date(date.getTime() + utcOffset + nyOffset);
+      
+        const options = {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        };
+        return nyDate.toLocaleDateString('en-US', options);
+      };
       var reports = await Report.find().sort({ createdAt: "desc" }).lean();
       var places = await Place.find().sort({ createdAt: "desc" }).lean();
-      res.render("map.ejs", { reports: reports, places:places, user: req.user});
+      res.render("map.ejs", { reports: reports, places:places, user: req.user, formatDate});
     } catch (err) {
       console.log(err);
     }

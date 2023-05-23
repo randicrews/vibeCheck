@@ -1,13 +1,11 @@
 <%- include('partials/header') -%>  
 
 <div class="container">
-  <div class="row mt-5">
-      <div class="flexCol">
+  <div class="flexCol">
         <p class="greet">hey, <strong><%= user.userName %></strong>. what's up?</p>
-      </div>
       <div class="flexCol">
         <a class="btn-default" href="/map">read the room <i class="fa-regular fa-eye"></i></a>
-        <a class="btn-default roomyBottom" href="/place">speak your piece <i class="fa-regular fa-message"></i></a>
+        <a class="btn-default roomyBottom" href="/report">speak your piece <i class="fa-regular fa-message"></i></a>
         <a href="/logout" class="btn-default smoll btn logout"><i class="fa-solid fa-ghost"></i>logout</a>
       </div>  
     </div>

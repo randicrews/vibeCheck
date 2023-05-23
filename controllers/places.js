@@ -40,17 +40,12 @@ module.exports = {
         );
         locationID = existingPlace._id;
       }
-      // format date 
-      const formattedDate = new Date(date).toLocaleDateString("en-US", {
-        month: "long",
-        day: "numeric",
-        year: "numeric",
-      });
+
       // Create the report
       await Report.create({
         locationID,
         name,
-        date: formattedDate,
+        date,
         body,
         reportType,
         reportedBy: req.user.id,
