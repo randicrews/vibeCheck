@@ -148,7 +148,7 @@ function initMap() {
     var center = { lat: Number(place.lat), lng: Number(place.long) };
     var symbol = {
         path: google.maps.SymbolPath.CIRCLE,
-        scale: Math.sqrt(place.reports) * 5, // Adjust the size as needed
+        scale: Math.sqrt(place.reports) * 8, // Adjust the size as needed
         fillColor: `rgb(${place.reports < 1 ? 120 : place.reports < 5 ? 255 : place.reports < 10 ? 255 - (place.reports - 5) * 20 : 255}, ${place.reports < 1 ? 80 : place.reports < 5 ? 150 : place.reports < 10 ? 100 : 0}, 0)`,
         fillOpacity: 0.5,
         strokeOpacity: 0, 
@@ -173,8 +173,8 @@ function initMap() {
       '<div class="info" id="info">' +
       `<h1 class="info" id="infoHeading">${place.name}</h1>` +
       '<div class="info" id="infoBody">' +
-      `<h2 class="info"> reports: ${place.reports} </h2> <br>` +
-      `<h3 class="info"> ${uniqueReports.join(", ")} </h2> <br>` +
+      `<h2 class="info"> reports: ${place.reports} </h2>` +
+      `<h3 class="info"> reports of ${uniqueReports.join(", ")} </h2>` +
       "</div>" +
       "</div>";
       var content = contentString
@@ -232,6 +232,15 @@ $.get('/getdata')
     console.error("error:", textStatus, errorThrown);
   });
 
+  const nameInput = document.getElementById('autocomplete-input');
+  const searchForm = document.getElementById('searchPlace');
+
+  nameInput.addEventListener('keypress', function(event) {
+    if (event.keyCode === 13) { // Enter key pressed
+      event.preventDefault(); // Prevent form submission
+      searchForm.submit(); // Submit the form
+    }
+  });
 
 // EDIT REPORT
 var edit = document.querySelectorAll('.editButt')
@@ -242,12 +251,7 @@ Array.from(edit).forEach(function (element) {
     form.classList.toggle('hidden')
     var oldDate = element.parentNode.parentNode.parentNode.childNodes[1]
     var oldDetails = element.parentNode.parentNode.parentNode.childNodes[1]
-
-
-
     console.log(old, 'old')
-
-
   })
 });
 

@@ -48,7 +48,7 @@ module.exports = {
       console.log(reports, 'reports')
       var places = await Place.find({ _id: locationID }).sort({createdAt: "desc" }).lean();
       console.log(places, 'places')
-      res.render('map.ejs', { reports: reports, places:places });
+      res.render('map.ejs', { reports: reports, places:places, user: req.user._id });
     } catch (err) {
       console.log(err);
     }

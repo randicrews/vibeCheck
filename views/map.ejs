@@ -94,8 +94,8 @@
               <!-- Editable fields -->
               <input hidden type="text" name="reportID" value="<%= reports[i]._id %>">
               <input required type="date" name="date" class="form-control" required max="<?php echo date('Y-m-d'); ?>" min="<?php echo date('Y-m-d', strtotime('-30 years')); ?>" value="<%= reports[i].date %>">
-              <textarea class="form-control" minlength="80" required name="body"><%= reports[i].body %></textarea>
-              <button class="btn" type="submit">Update</button>
+              <textarea class="form-control" minlength="50" required name="body"><%= reports[i].body %></textarea>
+              <button class="btn" type="submit">update</button>
             </form>
           </div>
       <%}%>
@@ -113,7 +113,8 @@
     </li>
   <% } %>
 </ul>
-<a href="/map" class="btn-default smoll">see all</a>
+<!-- i hate the 'il' ligature of this otherwise amazing font :') -->
+<a href="/map" class="btn-default smoll">no <span class="ligature-removal"> f</span><span class="ligature-removal">i</span>lter</a>
 <script src="/mapMain.js"></script> 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7PigA3KZAJa5hqRGglC_uHD9g2BBbgME&callback=initMap"></script>
 </body>

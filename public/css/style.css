@@ -132,6 +132,13 @@ input.login, input.signup, .report input, .report select, .edit-form input, text
   #infoBody{
     margin-bottom: 10px;
   }
+  h1.info{
+    font-size: 30px;
+    font-weight: 800;
+  }
+  h2.info{
+    font-size: 25px;
+  }
   h3.info{
     font-size: 20px;
     font-style: italic;
@@ -147,6 +154,9 @@ input.login, input.signup, .report input, .report select, .edit-form input, text
   }
   input.map{
     width: 95%;
+    border: none;
+  }
+  input.map:focus{
     border: none;
   }
   form.map{
@@ -180,6 +190,11 @@ input.login, input.signup, .report input, .report select, .edit-form input, text
 
 
     /* REPORTS */
+    .reports {
+      max-height: 400px; /* Adjust the maximum height as needed */
+      overflow-y: auto;
+      scrollbar-color: white
+    }
   li.report{
     background: rgba(60, 60, 60, 0.666);
     margin: 15px;
@@ -214,10 +229,7 @@ input.login, input.signup, .report input, .report select, .edit-form input, text
 form label{
   text-align: center;
   color: rgb(140, 140, 140);
-
-
 }
-
 
 /* built off of BUTTON 30 by Algolia */
 .btn-default{
@@ -273,10 +285,15 @@ form label{
 .btn:hover{
   color: white;
   background-color: rgb(140, 140, 140);
+  border: none;
+  box-shadow: none
 }
 .btn{
   color: rgb(0, 0, 0);
   background-color: rgb(60, 60, 60);
+  border: none;
+  box-shadow: none
+
 }
 .smoll{
   margin: 2px;

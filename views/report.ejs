@@ -86,7 +86,7 @@
           </select>
         
           <input type="date" name="date" class="form-control" required max="<?php echo date('Y-m-d'); ?>" min="<?php echo date('Y-m-d', strtotime('-30 years')); ?>">
-          <input type="text" name="body" placeholder="description of event" class="form-control" minlength="80" required>
+          <input type="text" name="body" placeholder="description of event: what happened? did staff take any action? please give info that helps others understand the situation" class="form-control" minlength="50" required>
         <button class="btn-default smoll" type="submit">submit<i class="fa-solid fa-circle-check"></i></button>
       </form>
 
