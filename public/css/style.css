@@ -234,6 +234,10 @@ form label{
   color: rgb(140, 140, 140);
 }
 
+form.report{
+  width: 85%;
+}
+
 /* built off of BUTTON 30 by Algolia */
 .btn-default{
   align-items: center;
