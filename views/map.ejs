@@ -91,7 +91,7 @@
               method="POST" 
               class="flexCol edit-form hidden" 
               >
-              <!-- Editable fields -->
+              <!-- fields to edit reports -->
               <input hidden type="text" name="reportID" value="<%= reports[i]._id %>">
               <input required type="date" name="date" class="form-control" required max="<?php echo date('Y-m-d'); ?>" min="<?php echo date('Y-m-d', strtotime('-30 years')); ?>" value="<%= reports[i].date %>">
               <textarea class="form-control" minlength="50" required name="body"><%= reports[i].body %></textarea>
@@ -115,6 +115,11 @@
 </ul>
 <!-- i hate the 'il' ligature of this otherwise amazing font :') -->
 <a href="/map" class="btn-default smoll">no<span class="space"></span><span class="ligature-removal"> f</span><span class="ligature-removal">i</span>lter</a>
+<ul class="mapSupport">
+  <li><strong><a href="https://www.rainn.org/">National Sexual Assault Hotline </a></strong><br><span>1-800-656-4673</span></li>
+  <li><strong><a href="https://www.thehotline.org/">National Domestic Violence Hotline </a></strong><br><span>1-800-799-7233</span></li>
+  <li><strong><a href="https://988lifeline.org/">Suicide and Crisis Lifeline </a></strong>br<span>988</span></li>
+</ul>
 <script src="/mapMain.js"></script> 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7PigA3KZAJa5hqRGglC_uHD9g2BBbgME&callback=initMap"></script>
 </body>

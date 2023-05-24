@@ -8,5 +8,12 @@ module.exports = {
   } catch (err) {
     console.log(err);
   }
+},
+  getSuccess: async (req, res) => {
+    try {
+      res.render("success.ejs", { user: req.user });
+    } catch (err) {
+      console.log(err);
+    }
   },
 };

@@ -1,0 +1,20 @@
+<%- include('partials/header') -%>  
+
+<div class="container">
+  <div class="flexCol">
+    <div class="headButts"> 
+      <a href="/home" class="btn-default smoll"> <i class="fa-solid fa-circle-arrow-left"></i> back </a>
+      <a href="/logout" class="btn-default smoll btn logout">logout<i class="fa-solid fa-ghost"></i></a>
+    </div>
+  <p class="recieved">we've recieved your report <%= user.userName %>, so sorry that happened.</p>
+  
+  <span>if you could use some support:</span>
+  <ul>
+    <li><strong><a href="https://www.rainn.org/">National Sexual Assault Hotline</a></strong> 1-800-656-4673 </li>
+    <li><strong><a href="https://www.thehotline.org/">National Domestic Violence Hotline</a></strong> 1-800-799-7233 </li>
+    <li><strong><a href="https://988lifeline.org/">Suicide and Crisis Lifeline </a></strong>988</li>
+  </ul>
+  </div>
+
+</div>
+<%- include('partials/footer') -%>

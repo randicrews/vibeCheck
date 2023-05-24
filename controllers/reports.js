@@ -50,7 +50,7 @@ module.exports = {
         reportedBy: req.user.id,
       });
   
-      res.redirect("/home");
+      res.redirect("/recieved");
     } catch (err) {
       console.log(err);
     }

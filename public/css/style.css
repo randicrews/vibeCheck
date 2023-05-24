@@ -167,7 +167,10 @@ input.login, input.signup, .report input, .report select, .edit-form input, text
     margin: 0px;
   }
   ul.reports{
+    width: 80%;
     color: white;
+    padding: 5px;
+    margin: 10px;
   }
   .reportEdit{
     display: flex;
@@ -186,6 +189,21 @@ input.login, input.signup, .report input, .report select, .edit-form input, text
     border-top-right-radius: 5px;
     border-bottom-left-radius: 0px;
     border-top-left-radius: 0px;
+  }
+  ul.mapSupport{
+    display: flex;
+    flex-direction: row;
+  }
+  .mapSupport li span{
+    color: white;
+  }
+  .mapSupport li{
+    padding: 10px;
+  } 
+  .mapSupport li:first-of-type + li {
+    border-left: 1px dotted rgb(60, 60, 60);;
+    border-right: 1px dotted rgb(60, 60, 60);;
+
   }
 
 
@@ -236,6 +254,15 @@ form label{
 
 form.report{
   width: 85%;
+}
+
+p.recieved{
+  margin-top: 20px;
+  font-size: larger;
+  font-style: italic;
+}
+.recieved+span{
+  margin: 20px;
 }
 
 /* built off of BUTTON 30 by Algolia */
