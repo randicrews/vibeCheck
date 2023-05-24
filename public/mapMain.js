@@ -193,11 +193,10 @@ function initMap() {
     circle.addListener('mouseout', function() {
     infoWindow.close();
     });
-    circle.addListener('touchstart', function() {
-      infoWindow.close();
-      });
-    circle.addListener('click', function() {
-    infoWindow.close();
+    circle.addListener('click', function () {
+      if ('ontouchstart' in window || navigator.maxTouchPoints) {
+        circleEvent(circle);
+      }
     });
 
   }
