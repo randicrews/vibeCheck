@@ -166,6 +166,8 @@ function initMap() {
 
     circle.addListener('mouseover', circleEvent)
     circle.addListener('click', circleEvent)
+    circle.addListener('touchstart', circleEvent);
+
 
     
     function circleEvent(circle){
@@ -191,6 +193,9 @@ function initMap() {
     circle.addListener('mouseout', function() {
     infoWindow.close();
     });
+    circle.addListener('touchend', function() {
+      infoWindow.close();
+      });
     circle.addListener('click', function() {
     infoWindow.close();
     });
