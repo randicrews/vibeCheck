@@ -121,6 +121,8 @@ input.login, input.signup, .report input, .report select, .edit-form input, text
     height: 400px;
     width: 100%;
     margin-bottom: 10px;
+    resize: vertical;
+    padding: 25px;
   }
   div.info{
     padding: 0;
@@ -261,6 +263,16 @@ p.recieved{
   font-size: larger;
   font-style: italic;
 }
+.recieved+span+ul a,   .mapSupport li a {
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+  color: rgb(100, 100, 100);
+}
+.recieved+span+ul a:hover, .mapSupport li a:hover {
+  text-decoration: underline dotted;
+  color: rgb(0, 100, 100);
+}
+
 .recieved+span{
   margin: 20px;
 }
