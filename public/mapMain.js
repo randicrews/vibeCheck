@@ -165,6 +165,8 @@ function initMap() {
     });
 
     circle.addListener('mouseover', circleEvent)
+    circle.addListener('click', circleEvent)
+
     
     function circleEvent(circle){
       const uniqueReports = [...new Set(place.reportType)];
