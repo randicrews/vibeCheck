@@ -11,7 +11,6 @@ const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
 const reportRoutes = require("./routes/report");
 const placeRoutes = require("./routes/places");
-const commentRoutes = require("./routes/comments");
 const mapRoutes = require("./routes/map");
 
  

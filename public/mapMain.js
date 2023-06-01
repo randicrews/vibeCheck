@@ -2,7 +2,7 @@
 function initMap() {
     // set up basic features of our map
     var options = {
-      zoom: 11,
+      zoom: 11.11,
       center: { lat: 42.3601, lng: -71.0589 },
       clickableIcons: false,
       clickable: false,
@@ -148,8 +148,18 @@ function initMap() {
     var center = { lat: Number(place.lat), lng: Number(place.long) };
     var symbol = {
         path: google.maps.SymbolPath.CIRCLE,
-        scale: Math.sqrt(place.reports) * 8, // Adjust the size as needed
-        fillColor: `rgb(${place.reports < 1 ? 120 : place.reports < 5 ? 255 : place.reports < 10 ? 255 - (place.reports - 5) * 20 : 255}, ${place.reports < 1 ? 80 : place.reports < 5 ? 150 : place.reports < 10 ? 100 : 0}, 0)`,
+        scale: Math.sqrt(place.reports) * 8, 
+        // proportional symbols
+        fillColor: 
+        `rgb(${place.reports < 1 ? 
+          120 : place.reports < 5 
+          ? 255 : place.reports < 10 
+          ? 255 - (place.reports - 5) * 20 : 255}, 
+          ${place.reports < 1 
+          ? 80 : place.reports < 5 
+          ? 150 : place.reports < 10 
+          ? 100 : 0}, 
+          0)`,
         fillOpacity: 0.5,
         strokeOpacity: 0, 
       };

@@ -10,8 +10,8 @@ module.exports = {
       const formatDate = (dateString) => {
         const date = new Date(dateString);
         const utcOffset = date.getTimezoneOffset() * 60000; // Get the UTC offset in milliseconds
-        const nyOffset = -240 * 60000; // NYC offset: UTC-4 hours (considering daylight saving time)
-        const nyDate = new Date(date.getTime() + utcOffset + nyOffset);
+        // const nyOffset = -240 * 60000; // NYC offset: UTC-4 hours (considering daylight saving time)
+        const nyDate = new Date(date.getTime() + utcOffset);
       
         const options = {
           year: 'numeric',
@@ -48,7 +48,7 @@ module.exports = {
       console.log(reports, 'reports')
       var places = await Place.find({ _id: locationID }).sort({createdAt: "desc" }).lean();
       console.log(places, 'places')
-      res.render('map.ejs', { reports: reports, places:places, user: req.user._id });
+      res.render('map.ejs', { reports: reports, places:places, user: req.user._id, });
     } catch (err) {
       console.log(err);
     }

@@ -36,13 +36,16 @@
         var place = autocomplete.getPlace();
         console.log(place, 'place')
         //make sure we know where we're going
-        console.log(place.geometry['viewport']['Ua'].hi, 'lat')
-        console.log(place.geometry['viewport']['Ha'].lo, 'long')
+        console.log((place.geometry['viewport']['Ua'].hi + place.geometry['viewport']['Ua'].lo)/2, 'lat')
+        console.log((place.geometry['viewport']['Ha'].hi + place.geometry['viewport']['Ha'].lo)/2, 'long')
         console.log(place.formatted_address, 'phys')
+        var lat = (place.geometry['viewport']['Ua'].hi + place.geometry['viewport']['Ua'].lo)/2
+        var long = (place.geometry['viewport']['Ha'].hi + place.geometry['viewport']['Ha'].lo)/2
+        var phys = place.formatted_address
         //confirmed - pull deets from place var, put in hidden inputs
-        $('#lat').val(place.geometry['viewport']['Ua'].hi);
-        $('#long').val(place.geometry['viewport']['Ha'].lo);
-        $('#phys').val(place.formatted_address);
+        $('#lat').val(lat);
+        $('#long').val(long);
+        $('#phys').val(phys);
       });
     }
   </script>
