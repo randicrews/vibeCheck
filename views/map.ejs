@@ -66,8 +66,7 @@
       <span class="date">
         <% 
           var originalDate = new Date(reports[i].date);
-          var adjustedDate = new Date(originalDate.getTime() + (24 * 60 * 60 * 1000));
-          var formattedDate = adjustedDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+          var formattedDate = originalDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
           %>
         <%= formattedDate %>
       </span>
