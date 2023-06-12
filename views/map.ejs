@@ -92,7 +92,7 @@
               >
               <!-- fields to edit reports -->
               <input hidden type="text" name="reportID" value="<%= reports[i]._id %>">
-              <input required type="date" name="date" class="form-control" required max="<?php echo date('Y-m-d'); ?>" min="<?php echo date('Y-m-d', strtotime('-30 years')); ?>" value="<%= reports[i].date %>">
+              <input required type="date" name="date" class="form-control" required max="<?php echo date('Y-m-d'); ?>" min="<?php echo date('Y-m-d', strtotime('-30 years')); ?>" value="<%= reports[i].date + 1 %>">
               <textarea class="form-control" minlength="50" required name="body"><%= reports[i].body %></textarea>
               <button class="btn" type="submit">update</button>
             </form>
